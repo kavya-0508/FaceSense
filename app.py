@@ -1,6 +1,5 @@
 import streamlit as st
 import subprocess
-from streamlit_option_menu import option_menu
 import os
 
 def custom_title(title_text, font_color='#700107'):
@@ -16,9 +15,9 @@ def custom_text(text, font_color='#002048', font_size='18px', font_weight='bold'
     st.markdown(text_html, unsafe_allow_html=True)
 
 with st.sidebar:
-    selected = option_menu(
-        menu_title="Main Menu",
-        options=["Home", "About", "Team"]
+    selected = st.radio(
+        "Main Menu",
+        ["Home", "About", "Team"]
     )
 
 # Add your logo here
@@ -26,7 +25,7 @@ logo = st.image("https://media.licdn.com/dms/image/C4D16AQHK9OSLGSDZvQ/profile-d
 
 if selected == "Home":
     # Get all attendee names from the 'faces' folder
-    path = 'AIML PHOTOS'
+    path = 'faces'
     all_attendees = {os.path.splitext(filename)[0] for filename in os.listdir(path)}
 
     custom_title("Welcome to AU Attendance App")
@@ -85,4 +84,3 @@ background-position: center;
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
