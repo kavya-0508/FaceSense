@@ -25,7 +25,7 @@ logo = st.image("https://media.licdn.com/dms/image/C4D16AQHK9OSLGSDZvQ/profile-d
 
 if selected == "Home":
     # Get all attendee names from the 'faces' folder
-    path = 'faces'
+    path = 'AIML'
     all_attendees = {os.path.splitext(filename)[0] for filename in os.listdir(path)}
 
     custom_title("Welcome to AU Attendance App")
